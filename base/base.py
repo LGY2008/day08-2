@@ -1,4 +1,6 @@
 import time
+
+import page
 from selenium.webdriver.support.wait import WebDriverWait
 from base.get_logger import GetLogger
 
@@ -55,3 +57,15 @@ class Base:
         except:
             log.info("[base]: {} 元素查找失败，不存在当前页面".format(loc))
             return False # 代表元素不存在
+
+    # 回到首(页购物车、下订单、支付)都需要用到此方法
+    def base_index(self):
+        self.driver.get(page.URL)
+
+    # 切换frame表单方法
+    def base_switch_frame(self, name):
+        self.driver.switch_to.frame(name)
+
+    # 回到默认目录方法
+    def base_default_content(self):
+        self.driver.switch_to.default_content()
