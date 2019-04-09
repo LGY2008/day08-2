@@ -4,6 +4,8 @@ import logging.handlers
 class GetLogger:
 
     logger = None
+    # 在最外侧运行
+    # filename = "./log/tpshop.log"
     # 获取 logger
     @classmethod
     def get_logger(cls):

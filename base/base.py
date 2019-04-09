@@ -1,4 +1,5 @@
 import time
+from time import sleep
 
 import page
 from selenium.webdriver.support.wait import WebDriverWait
@@ -60,6 +61,7 @@ class Base:
 
     # 回到首(页购物车、下订单、支付)都需要用到此方法
     def base_index(self):
+        sleep(2)
         self.driver.get(page.URL)
 
     # 切换frame表单方法
@@ -69,3 +71,23 @@ class Base:
     # 回到默认目录方法
     def base_default_content(self):
         self.driver.switch_to.default_content()
+
+    # 切换窗口 方法 调用此方法
+    def base_switch_to_window(self, title):
+        log.info("正在执行切换title值为：{}窗口 ".format(title))
+        self.driver.switch_to.window(self.base_get_title_handle(title))
+
+    # 获取指定title页面的handle方法
+    def base_get_title_handle(self, title):
+        # 获取当前页面所有的handles
+        for handle in self.driver.window_handles:
+            log.info("正在遍历handles：{}-->{}".format(handle, self.driver.window_handles))
+            # 切换 handle
+            self.driver.switch_to.window(handle)
+            log.info("切换 :{} 窗口".format(handle))
+            # 获取当前页面title 并判断 是否等于 指定参数title
+            log.info("判断当前页面title:{} 是否等于指定的title:{}".format(self.driver.title, title))
+            if self.driver.title == title:
+                log.info("条件成立！ 返回当前handle{}".format(handle))
+                # 返回 handle
+                return handle
