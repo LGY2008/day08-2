@@ -1,0 +1,5 @@
+1554821534057	geckodriver	INFO	geckodriver 0.20.1
+1554821534066	geckodriver	INFO	Listening on 127.0.0.1:50965
+Usage:
+    geckodriver [OPTIONS]
+geckodriver: Unknown option --port

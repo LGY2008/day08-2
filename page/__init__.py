@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 """以下为项目服务器地址"""
-URL = "http://localhost"
+URL = "http://192.168.176.128"
 
 """以下为登录模块涉及元素 配置信息"""
 # 登录连接
@@ -38,3 +38,22 @@ cart_frame_id = By.CSS_SELECTOR, "#layui-layer-iframe1"
 cart_add_result = By.CSS_SELECTOR, ".conect-title>span"
 # 关闭提示窗口
 cart_close_window = By.CSS_SELECTOR, ".layui-layer-close"
+
+
+"""订单配置数据"""
+
+# 我的购物车
+order_my_cart = By.CSS_SELECTOR, ".c-n"
+# 去结算
+order_account = By.CSS_SELECTOR, ".gwc-qjs"
+# 定位收货人
+order_person = By.CSS_SELECTOR, ".consignee>b"
+# 提交订单
+order_submit = By.CSS_SELECTOR, ".Sub-orders"
+# 获取提交订单 结果
+order_result = By.CSS_SELECTOR, ".erhuh>h3"
+
+"""支付配置数据"""
+# 我的订单
+pay_my_order = By.PARTIAL_LINK_TEXT, "我的订单"
+pay_now_pay = By.PARTIAL_LINK_TEXT, "立即支付"

@@ -10,7 +10,8 @@ class GetDriver:
     def get_driver(cls):
         if cls.driver is None:
             # 获取driver
-            cls.driver = webdriver.Firefox()
+            # cls.driver = webdriver.Firefox()
+            cls.driver = webdriver.Chrome()
             # 最大化浏览器
             cls.driver.maximize_window()
             # 打开url
