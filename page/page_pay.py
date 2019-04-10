@@ -10,14 +10,14 @@ class PagePay(Base):
     # 点击 立即支付
     def page_click_now_payment(self):
         # 必须先切换窗口
-        self.base_switch_to_window(page.pay_my_order_title)
+        self.base_switch_window(page.pay_my_order_title)
         # 点击立即支付
         self.base_click(page.pay_now_payment)
 
     # 点击 货到付款
     def page_click_pay_on_delivery(self):
         # 必须切换窗口
-        self.base_switch_to_window(page.pay_payment_title)
+        self.base_switch_window(page.pay_payment_title)
         # 点击货到付款
         self.base_click(page.pay_on_delivery)
 

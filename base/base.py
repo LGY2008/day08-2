@@ -69,3 +69,18 @@ class Base:
     # 回到默认目录方法
     def base_default_content(self):
         self.driver.switch_to.default_content()
+
+    # 切换窗口方法 业务调用时使用
+    def base_switch_window(self, title):
+        self.driver.switch_to.window(self.base_title_get_handle(title))
+
+    # 根据title 获取指定窗口句柄
+    def base_title_get_handle(self, title):
+        # 遍历 所有窗口句柄
+        for handle in self.driver.window_handles:
+            # 切换 窗口 目的：获取当前窗口title
+            self.driver.switch_to.window(handle)
+            # 判断当前窗口title 是否 等于指定要获取的title
+            if self.driver.title == title:
+                # 条件成立 返回当前窗口 句柄
+                return handle
