@@ -11,7 +11,7 @@ log = GetLogger().get_logger()
 
 class Base:
 
-    def __init__(self, driver: object):
+    def __init__(self, driver):
         log.info("[base]: 正在获取初始化driver对象:{}".format(driver))
         self.driver = driver
 
@@ -60,7 +60,6 @@ class Base:
 
     # 回到首(页购物车、下订单、支付)都需要用到此方法
     def base_index(self):
-        time.sleep(2)
         self.driver.get(page.URL)
 
     # 切换frame表单方法
